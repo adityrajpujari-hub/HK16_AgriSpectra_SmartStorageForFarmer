@@ -1,0 +1,153 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Data Source — AgriSpectra</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">🌾 AgriSpectra</h1>
+      <div class="nav-right">
+        <nav>
+          <a href="/" data-key="nav_home">Home</a>
+          <a href="/calculator" data-key="nav_calc">Risk Calculator</a>
+          <a href="/how" data-key="nav_how">How It Works</a>
+          <a href="/data-source" data-key="nav_data">Data Source</a>
+          <a href="/about" data-key="nav_about">About</a>
+        </nav>
+        <select id="languageSelect" class="lang-select">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="od">ଓଡ଼ିଆ</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container">
+    <section class="page-header">
+      <h2><i class="fa-solid fa-book"></i> Data Source & Disclaimer</h2>
+      <p>Understanding our scientific foundation and limitations</p>
+    </section>
+
+    <div class="content-section">
+      <p>This hackathon demo uses scientifically-informed ranges and domain knowledge summarized from agronomy literature and storage guidelines. It is a decision-support tool — not legal, medical, or financial advice.</p>
+    </div>
+
+    <section class="featured-section gov-resources" id="gov-resources">
+      <h3>Government Support & Useful Resources for Farmers</h3>
+      <div class="content-section">
+        <p>The Government of India provides several schemes and infrastructure support to reduce post-harvest losses and strengthen agricultural storage. Farmers can explore the following official resources.</p>
+
+        <h4>Storage & Infrastructure Support</h4>
+        <ul>
+          <li><strong>Agriculture Infrastructure Fund (AIF)</strong> — Long-term financing for cold storage, warehouses, silos and post-harvest infrastructure. <a href="https://agriinfra.dac.gov.in/" target="_blank" rel="noopener noreferrer">agriinfra.dac.gov.in</a> — <a href="https://agriinfra.dac.gov.in/Home/Registration" target="_blank" rel="noopener noreferrer">Registration</a></li>
+          <li><strong>Pradhan Mantri Kisan SAMPADA Yojana (PMKSY)</strong> — Grants and support for food processing, cold chains and storage projects. <a href="https://www.mofpi.gov.in/en/Schemes/pradhan-mantri-kisan-sampada-yojana" target="_blank" rel="noopener noreferrer">PMKSY on MoFPI</a> — <a href="https://sampada-mofpi.gov.in/" target="_blank" rel="noopener noreferrer">SAMPADA portal</a></li>
+          <li><strong>Ministry of Food Processing Industries (MoFPI)</strong> — Policy and program details for cold chain and storage schemes. <a href="https://mofpi.gov.in/" target="_blank" rel="noopener noreferrer">mofpi.gov.in</a></li>
+        </ul>
+
+        <h4>Digital & Market Support</h4>
+        <ul>
+          <li><strong>e-NAM (National Agriculture Market)</strong> — Online market platform to trade across mandis and reduce storage time. <a href="https://enam.gov.in/web/" target="_blank" rel="noopener noreferrer">enam.gov.in</a></li>
+          <li><strong>Small Farmers Agribusiness Consortium (SFAC)</strong> — Support for FPOs and farmer groups to access markets and storage solutions. <a href="http://sfacindia.com/" target="_blank" rel="noopener noreferrer">sfacindia.com</a></li>
+        </ul>
+
+        <h4>Financial & Farmer Support</h4>
+        <ul>
+          <li><strong>Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)</strong> — Direct income support for farmers. <a href="https://pmkisan.gov.in/" target="_blank" rel="noopener noreferrer">pmkisan.gov.in</a></li>
+          <li><strong>Crop Insurance & Credit</strong> — Many states and insurers offer crop insurance and credit lines; check your state agriculture portal or bank for details.</li>
+        </ul>
+
+        <h4>Smart Integration Ideas (future features)</h4>
+        <ul>
+          <li><button class="small-btn" onclick="window.open('https://agriinfra.dac.gov.in/Home/Registration','_blank')">Check your eligibility</button> — Link to AIF registration and eligibility info.</li>
+          <li><button class="small-btn" onclick="alert('Future: find nearby storage by GPS or FPO directory')">Find nearby storage facility</button> — (Future feature)</li>
+          <li><a href="#how-to-apply">Learn how to apply</a> — Short guide and quick steps below.</li>
+          <li><a href="#gov-faq">FAQ about schemes</a> — Common questions for farmers.</li>
+        </ul>
+
+        <div id="how-to-apply" style="margin-top:1rem;">
+          <h5>Learn how to apply (short)</h5>
+          <ol>
+            <li>Check scheme eligibility on the official portal.</li>
+            <li>Prepare basic documents (land proof, ID, bank details).</li>
+            <li>Apply online or through your local agriculture office / FPO.</li>
+            <li>Follow up with the implementing agency for approval and disbursement.</li>
+          </ol>
+        </div>
+
+        <div id="gov-faq" style="margin-top:1rem;">
+          <h5>FAQ</h5>
+          <ul>
+            <li><strong>Q:</strong> Can small farmers apply? <strong>A:</strong> Yes — many schemes have provisions for smallholders or FPOs.</li>
+            <li><strong>Q:</strong> Where to get help? <strong>A:</strong> Contact your district agriculture office or local FPO for guidance.</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:1rem; font-style:italic;">AgriSpectra is an independent platform. We are not affiliated with any government authority. The above links are provided for informational purposes only.</p>
+      </div>
+    </section>
+
+    <section class="featured-section">
+      <h3>Farmer Storage Safety Checklist</h3>
+      <div class="content-section">
+        <ul>
+          <li>Clean and dry store before placing produce</li>
+          <li>Keep produce off the floor and cover with breathable material</li>
+          <li>Ensure ventilation and avoid direct sunlight</li>
+          <li>Dry grains to safe moisture before long storage</li>
+          <li>Regularly inspect for pests and mold</li>
+        </ul>
+        <p>For more, try the <a href="/calculator">Risk Calculator</a> to see actions for your crop and conditions.</p>
+      </div>
+    </section>
+
+    <section class="featured-section">
+      <h3><i class="fa-solid fa-lightbulb"></i> Key Information</h3>
+      <div class="info-grid">
+        <div class="info-card">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h4>Academic References</h4>
+          <p>Data is based on ICAR, FAO, and peer-reviewed agricultural research on post-harvest storage.</p>
+        </div>
+        <div class="info-card">
+          <i class="fa-solid fa-warning"></i>
+          <h4>Demo Use Only</h4>
+          <p>Current values are for demonstration and educational use. Production systems need verification.</p>
+        </div>
+        <div class="info-card">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>Not Professional Advice</h4>
+          <p>This tool should not replace consultation with agricultural experts or agronomists.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-section">
+      <h3>Important Disclaimers</h3>
+      <div class="content-section">
+        <ul style="list-style: none; padding: 0;">
+          <li><i class="fa-solid fa-circle-exclamation" style="color: var(--warning);"></i> Not a substitute for professional agronomic advice</li>
+          <li><i class="fa-solid fa-circle-exclamation" style="color: var(--warning);"></i> Regional variations in climate and infrastructure may affect results</li>
+          <li><i class="fa-solid fa-circle-exclamation" style="color: var(--warning);"></i> Results should be validated against local conditions</li>
+          <li><i class="fa-solid fa-circle-exclamation" style="color: var(--warning);"></i> Storage facility management is critical to real-world outcomes</li>
+        </ul>
+        <p style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">For production implementation, please add detailed references and conduct local validation studies.</p>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 AgriSpectra | Hackathon Project</p>
+      <p style="font-size: 0.85rem; margin-top: 1rem;">A science-based decision support system for safe post-harvest crop storage.</p>
+    </div>
+  </footer>
+
+<script src="/static/translations.js"></script>
+</body>
+</html>

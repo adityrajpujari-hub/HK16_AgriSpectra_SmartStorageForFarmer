@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Risk Calculator — AgriSpectra</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+        <h1 class="logo">🌾 AgriSpectra</h1>
+        <div class="nav-right">
+            <nav>
+                <a href="/" data-key="nav_home">Home</a>
+                <a href="/calculator" data-key="nav_calc">Risk Calculator</a>
+                <a href="/how" data-key="nav_how">How It Works</a>
+                <a href="/data-source" data-key="nav_data">Data Source</a>
+                <a href="/about" data-key="nav_about">About</a>
+            </nav>
+            <select id="languageSelect" class="lang-select">
+                <option value="en">English</option>
+                <option value="hi">हिंदी</option>
+                <option value="od">ଓଡ଼ିଆ</option>
+            </select>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="page-header">
+        <h2 data-key="calc_title"><i class="fa-solid fa-calculator"></i> Risk Calculator</h2>
+        <p data-key="calc_desc">Enter simple storage details and get a clear risk score with easy actions.</p>
+        <div class="calc-ctas">
+            <button class="secondary-btn" onclick="location.href='/data-source'">Learn About Government Support</button>
+            <button class="outline-btn" onclick="location.href='/about'">Request a Demo</button>
+        </div>
+    </section>
+
+    <form method="post" class="form-grid" id="riskForm">
+
+        <label>
+            <span data-key="calc_crop">Crop type</span>
+            <select name="crop_type" required>
+                <option value="Wheat" data-key="crop_wheat">Wheat</option>
+                <option value="Paddy" data-key="crop_paddy">Paddy</option>
+                <option value="Rice" data-key="crop_rice">Rice</option>
+                <option value="Mustard" data-key="crop_mustard">Mustard</option>
+                <option value="Sugarcane" data-key="crop_sugarcane">Sugarcane</option>
+                <option value="Black Pepper" data-key="crop_pepper">Black Pepper</option>
+                <option value="Coffee" data-key="crop_coffee">Coffee</option>
+                <option value="Banana" data-key="crop_banana">Banana</option>
+                <option value="Potato" data-key="crop_potato">Potato</option>
+                <option value="Onion" data-key="crop_onion">Onion</option>
+                <option value="Groundnut" data-key="crop_groundnut">Groundnut</option>
+                <option value="Bajra" data-key="crop_bajra">Bajra</option>
+            </select>
+        </label>
+
+        <label>
+            <span data-key="calc_region">Region</span>
+            <select name="region" id="regionSelect">
+                <option value="North" data-key="region_north">North</option>
+                <option value="South" data-key="region_south">South</option>
+                <option value="East" data-key="region_east">East</option>
+                <option value="West" data-key="region_west">West</option>
+            </select>
+            <button type="button" id="detectRegion" class="detect-btn">🗺️ Auto-detect region</button>
+        </label>
+
+        <label>
+            <span data-key="calc_temp">Temperature (°C)</span>
+            <input type="number" name="temperature" step="0.1" required value="">
+        </label>
+
+        <label>
+            <span data-key="calc_humidity">Humidity (%)</span>
+            <input type="number" name="humidity" step="0.1" required value="">
+        </label>
+
+        <label>
+            <span data-key="calc_season">Season</span>
+            <select name="season">
+                <option value="Summer" data-key="season_summer">Summer</option>
+                <option value="Monsoon" data-key="season_monsoon">Monsoon</option>
+                <option value="Winter" data-key="season_winter">Winter</option>
+                <option value="Post-harvest" data-key="season_postharvest">Post-harvest</option>
+            </select>
+        </label>
+
+        <label>
+            <span data-key="calc_duration">Storage duration (days)</span>
+            <input type="number" name="storage_days" required value="">
+        </label>
+
+        <div class="form-actions">
+            <button type="submit" class="primary-btn" data-key="calc_submit"><i class="fa-solid fa-bolt"></i> Check Storage Risk Now</button>
+        </div>
+    </form>
+
+    
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>© 2026 AgriSpectra | Hackathon Project</p>
+        <p style="font-size: 0.85rem; margin-top: 1rem;">A science-based decision support system for safe post-harvest crop storage.</p>
+    </div>
+</footer>
+
+<script src="/static/script.js"></script>
+
+
+
+<script src="/static/translations.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Risk Calculator - AgriSpectra</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+        <h1 class="logo">AgriSpectra</h1>
+        <div class="nav-right">
+            <nav>
+                <a href="/" data-key="nav_home">Home</a>
+                <a href="/calculator" data-key="nav_calc">Risk & Eligibility</a>
+                <a href="/how" data-key="nav_how">How It Works</a>
+                <a href="/government-support">Government Support</a>
+                <a href="/data-source" data-key="nav_data">Data Source</a>
+                <a href="/about" data-key="nav_about">About</a>
+            </nav>
+            <select id="languageSelect" class="lang-select">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="od">Odia</option>
+                <option value="te">Telugu</option>
+            </select>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="page-header">
+        <h2 data-key="calc_title"><i class="fa-solid fa-calculator"></i> Risk Calculator</h2>
+        <p data-key="calc_desc">Enter simple storage details and get a clear risk score with easy actions.</p>
+        <div class="calc-ctas">
+            <button class="secondary-btn" onclick="location.href='/government-support'">Learn About Government Support</button>
+            <button class="outline-btn" onclick="location.href='/about'">Request a Demo</button>
+        </div>
+    </section>
+
+    <form method="post" class="form-grid" id="riskForm">
+
+        <label>
+            <span data-key="calc_crop">Crop type</span>
+            <select name="crop_type" required>
+                <option value="Wheat" data-key="crop_wheat">Wheat</option>
+                <option value="Paddy" data-key="crop_paddy">Paddy</option>
+                <option value="Rice" data-key="crop_rice">Rice</option>
+                <option value="Mustard" data-key="crop_mustard">Mustard</option>
+                <option value="Sugarcane" data-key="crop_sugarcane">Sugarcane</option>
+                <option value="Black Pepper" data-key="crop_pepper">Black Pepper</option>
+                <option value="Coffee" data-key="crop_coffee">Coffee</option>
+                <option value="Banana" data-key="crop_banana">Banana</option>
+                <option value="Potato" data-key="crop_potato">Potato</option>
+                <option value="Onion" data-key="crop_onion">Onion</option>
+                <option value="Groundnut" data-key="crop_groundnut">Groundnut</option>
+                <option value="Bajra" data-key="crop_bajra">Bajra</option>
+            </select>
+        </label>
+
+        <label class="location-field">
+            <span>Place in India</span>
+            <input type="text" name="place" id="placeInput" placeholder="e.g., Cuttack, Odisha" required value="{{ form.place or '' }}">
+            <input type="hidden" name="latitude" id="latitudeInput" value="{{ form.latitude or '' }}">
+            <input type="hidden" name="longitude" id="longitudeInput" value="{{ form.longitude or '' }}">
+            <input type="hidden" name="region" id="regionInput" value="{{ form.region or '' }}">
+            <div class="location-actions">
+                <button type="button" class="secondary-btn" id="showOnMapBtn"><i class="fa-solid fa-map-location-dot"></i> Show on Google Map</button>
+                <button type="button" class="secondary-btn" id="useLocationBtn"><i class="fa-solid fa-location-crosshairs"></i> Use My Location</button>
+            </div>
+            <p id="locationStatus" class="location-status">Choose any location in India. You can type manually, then auto-fill weather averages.</p>
+        </label>
+
+        <div class="map-frame-wrap">
+            <iframe
+                id="googleMapFrame"
+                title="Google map preview"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q={{ (form.place or 'India')|urlencode }}&z=6&output=embed">
+            </iframe>
+        </div>
+
+        <label>
+            <span data-key="calc_temp">Temperature (C)</span>
+            <input type="number" name="temperature" id="temperatureInput" step="0.1" required value="{{ form.temperature or '' }}">
+        </label>
+
+        <label>
+            <span data-key="calc_humidity">Humidity (%)</span>
+            <input type="number" name="humidity" id="humidityInput" step="0.1" required value="{{ form.humidity or '' }}">
+        </label>
+
+        <label>
+            <span>Weather Input Mode</span>
+            <select id="weatherInputMode">
+                <option value="auto">Auto-fill from place (10-day avg)</option>
+                <option value="manual">Manual input</option>
+            </select>
+        </label>
+
+        <label>
+            <span data-key="calc_season">Season</span>
+            <select name="season">
+                <option value="Summer" data-key="season_summer">Summer</option>
+                <option value="Monsoon" data-key="season_monsoon">Monsoon</option>
+                <option value="Winter" data-key="season_winter">Winter</option>
+                <option value="Post-harvest" data-key="season_postharvest">Post-harvest</option>
+            </select>
+        </label>
+
+        <label>
+            <span data-key="calc_duration">Storage duration (days)</span>
+            <input type="number" name="storage_days" required value="{{ form.storage_days or '' }}">
+        </label>
+
+        <div class="form-actions">
+            <button type="submit" class="primary-btn" data-key="calc_submit"><i class="fa-solid fa-bolt"></i> Check Storage Risk Now</button>
+            <button type="button" class="secondary-btn" id="autofillWeatherBtn"><i class="fa-solid fa-cloud-sun"></i> Auto-fill 10-day Avg Temp/Humidity</button>
+            <button type="button" class="secondary-btn" id="checkAlertsBtn"><i class="fa-solid fa-triangle-exclamation"></i> Check Heavy Rain / Cyclone Alerts</button>
+            <button type="button" class="secondary-btn" id="voiceCommandBtn"><i class="fa-solid fa-microphone"></i> Voice Command</button>
+        </div>
+        <section id="weatherAlertsPanel" class="weather-alerts-panel" aria-live="polite">
+            <h4><i class="fa-solid fa-bell"></i> Weather Safety Alerts</h4>
+            <p class="weather-alerts-empty">No alert checked yet. Use "Check Heavy Rain / Cyclone Alerts".</p>
+        </section>
+        <p id="voiceStatus" class="voice-status" aria-live="polite">Try saying: "Crop is paddy", "Location is Cuttack Odisha", "Temperature 28 degrees", "Storage duration 60 days", "Calculate risk".</p>
+        <p id="voiceTranscript" class="voice-transcript" aria-live="polite">Live transcript will appear here while listening.</p>
+        <p class="voice-note">Voice control is provided for accessibility and ease of use, especially for farmers in hands-busy conditions.</p>
+    </form>
+
+    {% if result %}
+    <section class="result">
+        <h3>
+            <span data-key="result_title">Result</span> -
+            <span class="level {{ result.risk_level|lower }}" id="riskLevel" data-key="risk_{{ result.risk_level|lower }}">{{ result.risk_level }}</span>
+        </h3>
+
+        <div class="result-grid">
+            <div class="score">
+                <canvas id="riskChart" width="160" height="160" data-score="{{ result.risk_score | tojson }}"></canvas>
+                <div class="score-number">{{ result.risk_score }}</div>
+            </div>
+
+            <div class="details">
+                <h4 data-key="why_section">Why</h4>
+                <p>{{ result.explanation }}</p>
+
+                <h4 data-key="recommendations_section">Recommendations</h4>
+                <ul>
+                    {% for r in result.recommendations %}
+                    <li>{{ r }}</li>
+                    {% endfor %}
+                </ul>
+
+                                <h4>Quick Storage Checklist</h4>
+                                <ul>
+                                    <li>Is storage area clean and dry?</li>
+                                    <li>Are grains/pallets off the floor?</li>
+                                    <li>Is humidity below 70% (adjust per crop)?</li>
+                                </ul>
+
+                <h4 data-key="scientific_details">Scientific details</h4>
+                <p>
+                    <span data-key="ideal_temp">Ideal temp</span>: {{ result.details.ideal_temp[0] }}-{{ result.details.ideal_temp[1] }}Â°C<br>
+                    <span data-key="ideal_humidity">Ideal RH</span>: {{ result.details.ideal_humidity[0] }}-{{ result.details.ideal_humidity[1] }}%
+                </p>
+            </div>
+        </div>
+
+        {% if eligibility_result %}
+        <section class="content-section" style="margin-top:1rem;">
+            <h4><i class="fa-solid fa-filter-circle-dollar"></i> Government Support Eligibility</h4>
+            <p><strong>Crop:</strong> {{ eligibility_result.input_summary.crop_type }} |
+               <strong>Region:</strong> {{ eligibility_result.input_summary.region }} |
+               <strong>Risk Level:</strong> {{ eligibility_result.input_summary.risk_level }}</p>
+
+            <div class="eligibility-checklist">
+                {% for c in eligibility_result.checks %}
+                <div class="eligibility-check {{ 'met' if c.met else 'not-met' }}">
+                    <i class="fa-solid {{ 'fa-circle-check' if c.met else 'fa-circle-minus' }}"></i>
+                    <span>{{ c.label }}</span>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="eligibility-grid">
+                {% for scheme in eligibility_result.possible_schemes %}
+                <article class="eligibility-card">
+                    <h4><i class="fa-solid {{ scheme.icon }}"></i> {{ scheme.name }}</h4>
+                    <p><strong>Purpose:</strong> {{ scheme.purpose }}</p>
+                    <p><strong>Why you may be eligible:</strong> {{ scheme.why_eligible }}</p>
+                    <p><strong>Recommended next action:</strong> {{ scheme.recommended_next_action }}</p>
+                    <p><a href="{{ scheme.official_link }}" target="_blank" rel="noopener noreferrer">Official verification link</a></p>
+                </article>
+                {% endfor %}
+            </div>
+
+            <div class="content-section" style="margin-top:1rem;">
+                <h4><i class="fa-solid fa-list"></i> Recommended Next Steps</h4>
+                <ul>
+                    {% for a in eligibility_result.recommended_actions %}
+                    <li>{{ a }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="eligibility-disclaimer">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span>{{ eligibility_result.disclaimer }}</span>
+            </div>
+        </section>
+        {% endif %}
+    </section>
+    {% endif %}
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>© 2026 AgriSpectra</p>
+        <p style="font-size: 0.85rem; margin-top: 1rem;">A science-based decision support system for safe post-harvest crop storage.</p>
+    </div>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+{% if result %}
+<script>
+(function () {
+    const canvas = document.getElementById('riskChart');
+    if (!canvas) return;
+
+    const score = parseFloat(canvas.getAttribute('data-score'));
+    const ctx = canvas.getContext('2d');
+
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [score, 100 - score],
+                backgroundColor: [
+                    score > 80 ? '#e74c3c' :
+                    score > 50 ? '#e67e22' :
+                    score > 20 ? '#f1c40f' :
+                                 '#2ecc71',
+                    '#ecf0f1'
+                ]
+            }]
+        },
+        options: {
+            cutout: '70%',
+            plugins: { legend: { display: false } }
+        }
+    });
+})();
+</script>
+{% endif %}
+
+<script src="{{ url_for('static', filename='translations.js') }}"></script>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSpectra | Smart Crop Storage</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="nav-container">
+    <h1 class="logo">🌾 AgriSpectra</h1>
+    <div class="nav-right">
+      <nav>
+        <a href="/" data-key="nav_home">Home</a>
+        <a href="/calculator" data-key="nav_calc">Risk Calculator</a>
+        <a href="/how" data-key="nav_how">How It Works</a>
+        <a href="/about" data-key="nav_about">About</a>
+      </nav>
+      <select id="languageSelect" class="lang-select">
+        <option value="en">English</option>
+        <option value="hi">हिंदी</option>
+        <option value="od">ଓଡ଼ିଆ</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h2 data-key="hero_title">AgriSpectra — Smart Storage for Farmers</h2>
+    <p data-key="hero_desc">
+      Simple, science-based guidance to keep your harvest safe. Enter basic storage details and get clear, practical advice.
+    </p>
+    <div class="hero-ctas">
+      <button class="primary-btn" onclick="location.href='/calculator'">Check Storage Risk Now</button>
+      <button class="secondary-btn" onclick="location.href='/data-source'">Learn About Government Support</button>
+      <button class="outline-btn" onclick="location.href='/about'">Request a Demo</button>
+    </div>
+  </div>
+
+  <div class="hero-icon">
+    <i class="fa-solid fa-seedling"></i>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="features" id="features">
+  <h3 data-key="why_title">Why AgriSpectra?</h3>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <i class="fa-solid fa-temperature-half"></i>
+      <h4 data-key="feature1_title">Scientific Thresholds</h4>
+      <p data-key="feature1_desc">Based on ICAR & FAO post-harvest research.</p>
+    </div>
+
+    <div class="feature-card">
+      <i class="fa-solid fa-chart-line"></i>
+      <h4 data-key="feature2_title">Dynamic Risk Engine</h4>
+      <p data-key="feature2_desc">Evaluates over 200,000 storage scenarios dynamically.</p>
+    </div>
+
+    <div class="feature-card">
+      <i class="fa-solid fa-leaf"></i>
+      <h4 data-key="feature3_title">Farmer Friendly</h4>
+      <p data-key="feature3_desc">Simple explanations and color-coded results.</p>
+    </div>
+
+    <div class="feature-card">
+      <i class="fa-solid fa-shield-halved"></i>
+      <h4 data-key="feature4_title">Decision Support</h4>
+      <p data-key="feature4_desc">Helps reduce post-harvest losses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STRUCTURED FLOW ================= -->
+<section class="structured-flow container">
+  <h3>Importance</h3>
+  <p>Safe storage keeps food and income secure. Reducing spoilage helps farmers earn more and supports local markets.</p>
+
+  <h3>Problem</h3>
+  <p>Many losses happen after harvest due to heat, moisture, and long storage. Small changes in storage can cut losses a lot.</p>
+
+  <h3>Government Role</h3>
+  <p>Government programs provide storage facilities, training, and subsidies. AgriSpectra works with these efforts — not against them — to make local storage decisions easier.</p>
+
+  <h3>Our Solution</h3>
+  <p>AgriSpectra gives a simple score and clear actions based on crop, temperature, humidity, and days in storage.</p>
+
+  <h3>How It Works</h3>
+  <ul>
+    <li>Choose crop and region</li>
+    <li>Enter temperature, humidity and storage days</li>
+    <li>Get a color-coded risk score and short recommendations you can follow</li>
+  </ul>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Easy to use for farmers and extension workers</li>
+    <li>Quick actions to reduce spoilage and loss</li>
+    <li>Supports local government schemes and storage centers</li>
+  </ul>
+</section>
+
+<!-- ================= GOVERNMENT & LINKS ================= -->
+<section class="gov-links container" id="gov-support">
+  <h3>Government Support & Useful Links</h3>
+  <p>Official schemes and portals that support storage, cold chains, finance and farmer groups.</p>
+  <ul class="gov-list">
+    <li><strong>Agriculture Infrastructure Fund (AIF)</strong> — Long-term financing for cold storage, warehouses, silos and post-harvest infrastructure. <a href="https://agriinfra.dac.gov.in/" target="_blank" rel="noopener noreferrer">agriinfra.dac.gov.in</a> — <a href="https://agriinfra.dac.gov.in/Home/Registration" target="_blank" rel="noopener noreferrer">Registration</a></li>
+    <li><strong>Pradhan Mantri Kisan SAMPADA Yojana (PMKSY)</strong> — Support to modernize food processing and build cold chains and storage. <a href="https://www.mofpi.gov.in/en/Schemes/pradhan-mantri-kisan-sampada-yojana" target="_blank" rel="noopener noreferrer">mofpi.gov.in / PMKSY</a> — <a href="https://sampada-mofpi.gov.in/" target="_blank" rel="noopener noreferrer">SAMPADA portal</a></li>
+    <li><strong>Ministry of Food Processing Industries (MoFPI)</strong> — Parent ministry for cold chain, food processing and storage programs. <a href="https://mofpi.gov.in/" target="_blank" rel="noopener noreferrer">mofpi.gov.in</a></li>
+    <li><strong>e-NAM (National Agriculture Market)</strong> — Online market platform where farmers can sell across markets; helps reduce storage time and spoilage. <a href="https://enam.gov.in/web/" target="_blank" rel="noopener noreferrer">enam.gov.in</a></li>
+    <li><strong>Small Farmers Agribusiness Consortium (SFAC)</strong> — Supports FPOs, farmer groups and agribusiness linkages. <a href="http://sfacindia.com/" target="_blank" rel="noopener noreferrer">sfacindia.com</a></li>
+    <li><strong>Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)</strong> — Direct income support scheme for farmers; useful context for planning inputs and storage. <a href="https://pmkisan.gov.in/" target="_blank" rel="noopener noreferrer">pmkisan.gov.in</a></li>
+  </ul>
+
+  <h4>News & Awareness</h4>
+  <p>Short news summaries can increase trust. Examples: new cold storage projects under PMKSY, government approvals for scheme expansion, and state-level storage targets. Use local news links for context.</p>
+</section>
+
+<!-- ================= STORAGE CHECKLIST ================= -->
+<section class="checklist container">
+  <h3>Farmer Storage Safety Checklist</h3>
+  <ul>
+    <li>Clean and dry storage area before use</li>
+    <li>Keep grains off the floor on pallets</li>
+    <li>Monitor temperature and humidity daily if possible</li>
+    <li>Check for pests, mold or unusual smells weekly</li>
+    <li>Dry grains to safe moisture before long storage</li>
+  </ul>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" id="cta">
+  <h3 data-key="cta_title">Make Smarter Storage Decisions</h3>
+  <p data-key="cta_desc">This is a scientific decision-support system, not a medical or financial tool.</p>
+  <button class="secondary-btn" data-key="cta_btn" onclick="location.href='/calculator'">
+    Calculate Risk
+  </button>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <p>© 2026 AgriSpectra | Hackathon Project</p>
+    <p style="font-size: 0.85rem; margin-top: 1rem;">A science-based decision support system for safe post-harvest crop storage.</p>
+  </div>
+</footer>
+
+<script src="/static/translations.js"></script>
+<script src="/static/script.js"></script>

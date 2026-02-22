@@ -1,0 +1,120 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Government Support Eligibility Checker - AgriSpectra</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">AgriSpectra</h1>
+      <div class="nav-right">
+        <nav>
+          <a href="/">Home</a>
+          <a href="/">Risk Calculator</a>
+          <a href="/government-support">Government Support</a>
+          <a href="/eligibility-checker">Eligibility Checker</a>
+          <a href="/about">About</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h2><i class="fa-solid fa-list-check"></i> Government Support Eligibility Checker</h2>
+      <p>Awareness-oriented guidance to identify schemes that may fit your crop and storage risk profile.</p>
+    </section>
+
+    <form id="eligibilityForm" class="form-grid">
+      <label>
+        Crop Type
+        <select name="crop_type" required>
+          {% for crop in crops %}
+          <option value="{{ crop }}">{{ crop }}</option>
+          {% endfor %}
+        </select>
+      </label>
+
+      <label>
+        Indian Region
+        <select name="region" required>
+          {% for region in regions %}
+          <option value="{{ region }}">{{ region }}</option>
+          {% endfor %}
+        </select>
+      </label>
+
+      <label>
+        State (Optional)
+        <input type="text" name="state" placeholder="e.g., Odisha">
+      </label>
+
+      <label>
+        Farmer Category
+        <select name="farmer_category" required>
+          <option value="Marginal">Marginal</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+        </select>
+      </label>
+
+      <label>
+        Landholding Size (acres, optional)
+        <input type="number" name="landholding_size" step="0.1" placeholder="e.g., 1.5">
+      </label>
+
+      <label>
+        Storage Duration (days)
+        <input type="number" name="storage_days" required value="30">
+      </label>
+
+      <label>
+        Temperature (C)
+        <input type="number" name="temperature" step="0.1" required value="28">
+      </label>
+
+      <label>
+        Humidity (%)
+        <input type="number" name="humidity" step="0.1" required value="70">
+      </label>
+
+      <label>
+        Season
+        <select name="season" required>
+          {% for season in seasons %}
+          <option value="{{ season }}">{{ season }}</option>
+          {% endfor %}
+        </select>
+      </label>
+
+      <label>
+        Risk Level (Auto-fetched)
+        <input type="text" id="autoRiskLevel" name="risk_level" readonly placeholder="Click 'Fetch Risk Level'">
+      </label>
+
+      <div class="form-actions">
+        <button type="button" class="secondary-btn" id="fetchRiskBtn"><i class="fa-solid fa-wave-square"></i> Fetch Risk Level</button>
+        <button type="submit" class="primary-btn"><i class="fa-solid fa-filter-circle-dollar"></i> Check Eligibility</button>
+      </div>
+    </form>
+
+    <section id="eligibilityResult" class="result" style="display:none;"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 AgriSpectra</p>
+      <p style="font-size: 0.85rem; margin-top: 1rem;">A science-based decision support system for safe post-harvest crop storage.</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='eligibility.js') }}"></script>
+</body>
+</html>
+
+

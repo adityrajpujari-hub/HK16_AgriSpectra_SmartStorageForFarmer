@@ -1,0 +1,24 @@
+crop,region,temperature_c,humidity_percent,season,storage_days,risk_level,risk_score,scientific_reason
+wheat,North,28,40,Winter,120,SAFE,18,Ideal temperature and low humidity for grain storage
+wheat,North,34,55,Summer,200,MODERATE,42,Temperature and humidity approaching fungal risk zone
+paddy,North,29,82,Monsoon,90,HIGH,68,High humidity causing rapid mold growth
+paddy,East,30,88,Monsoon,140,CRITICAL,92,Flood-prone climate with excessive moisture
+mustard,North,27,50,Post-harvest,180,SAFE,22,Oilseed stored within moisture-safe limits
+sugarcane,North,33,80,Summer,2,HIGH,75,Very high respiration rate causes fast spoilage
+sugarcane,North,35,85,Monsoon,4,CRITICAL,98,Extended storage of perishable crop
+banana,South,14,90,Summer,5,MODERATE,48,Ethylene-driven ripening under warm conditions
+banana,South,18,95,Monsoon,8,CRITICAL,90,Temperature stress accelerates spoilage
+coffee,South,22,60,Winter,240,SAFE,20,Dry ventilated conditions ideal for coffee beans
+coffee,South,26,70,Summer,300,MODERATE,46,Moisture absorption risk increases
+black_pepper,South,28,78,Monsoon,200,HIGH,72,Aflatoxin risk above safe humidity
+potato,East,12,88,Winter,40,SAFE,25,Low temperature suppresses sprouting
+potato,East,20,85,Summer,70,HIGH,70,High temperature triggers sprouting
+jute,East,32,92,Monsoon,150,HIGH,66,Excess moisture weakens fiber strength
+turmeric,East,26,55,Post-harvest,220,SAFE,24,Dry storage prevents fungal growth
+onion,West,30,50,Winter,120,SAFE,20,Well-ventilated dry storage
+onion,West,34,70,Monsoon,160,HIGH,73,Humidity-induced sprouting and decay
+groundnut,West,28,45,Winter,300,SAFE,18,Low moisture prevents aflatoxin formation
+groundnut,West,32,75,Monsoon,340,CRITICAL,88,Aflatoxin risk under high humidity
+cotton,West,30,40,Summer,250,SAFE,15,Low humidity maintains fiber quality
+cotton,West,35,65,Monsoon,280,MODERATE,50,Fiber absorbs excess moisture
+bajra,West,25,35,Winter,330,SAFE,10,Highly storage-stable millet crop
